@@ -2,17 +2,14 @@ const express = require("express");
 
 const app = express();
 
-app.use("/test",(req,res)=>{
-    res.send("hello from the server");
+app.get("/user/:userid/:name/:password",(req,res)=>{
+    res.send(req.params);
 })
 
-app.use("/hello",(req,res)=>{
-    res.send("hello hello");
-})
-app.use("/",(req,res)=>{
-    res.send("Home dashBoard");
-})
 
+app.get("/user",(req,res)=>{
+    res.send(req.query);
+})
 
 
 app.listen(3000,()=>{
